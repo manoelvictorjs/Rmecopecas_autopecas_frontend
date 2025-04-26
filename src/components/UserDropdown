@@ -1,0 +1,39 @@
+"use client"
+import { useState } from 'react'
+import Link from 'next/link'
+import { User, ChevronDown, ChevronUp, Settings, LogOut } from 'lucide-react'
+
+export default function UserDropdown() {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <div className="relative ml-auto">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex items-center gap-1 text-black hover:text-green-600 font-semibold text-lg transition-colors duration-300"
+      >
+        <User className="h-5 w-5" />
+        {isOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+      </button>
+      
+      {isOpen && (
+        <div className="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-50 py-1 border border-gray-100">
+          <Link
+            href="/minha-conta"
+            className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-50"
+          >
+            <Settings className="mr-2 h-4 w-4" />
+            Minha Conta
+          </Link>
+          <Link
+            href="/logout"
+            className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-50"
+          >
+            <LogOut className="mr-2 h-4 w-4" />
+            Sair
+          </Link>
+        </div>
+      )}
+    </div>
+  )
+}

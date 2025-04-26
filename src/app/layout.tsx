@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 import { Montserrat } from 'next/font/google'
 import Footer from "@/components/Footer";
+import Link from "next/link";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -26,16 +27,35 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`h-full ${montserrat.variable}`}>
-      <body className={cn("relative h-full font-sans antialiased", inter.className)}> 
-        <header className="m-0 p-0 border-0">
-        </header>
-       
-        <main className="relative flex flex-col min-h-screen">
-        <Navbar/>
-        <div className="flex-grow flex-1">{children}</div>
-        <Footer/>         
-         
-        </main>
+      <body className={cn("relative h-full font-sans antialiased bg-green-100 flex flex-col", inter.className)}> 
+        {/* Container principal flexível */}
+        <div className="flex flex-col min-h-screen w-full">
+          <Navbar/>
+          
+          {/* Conteúdo principal que cresce */}
+          <main className="flex-grow">
+            {children}
+          </main>
+          
+          {/* Rodapé e créditos - agora alinhados corretamente */}
+          <div className="mt-auto">
+            <Footer/>
+            
+            {/* Container do desenvolvedor - centralizado e alinhado */}
+            <div className="w-full bg-green-100 ">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 py-1">
+                <div className="text-center">
+                  <Link 
+                    href="https://www.linkedin.com/in/manoel-victor-b6a45b333/" 
+                    className="text-sm text-gray-500 hover:text-green-600 inline-block ml-11"
+                  >
+                    Dev Manoel Victor  
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </body>
     </html>
   );

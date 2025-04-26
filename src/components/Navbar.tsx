@@ -62,7 +62,7 @@ const Navbar = () => {
       </div>
 
       {/* SEGUNDA NAVBAR (LINKS) */}
-      <div className={`hidden md:block fixed w-full bg-green-100 z-40 transition-all duration-500 ${topNavScrolled ? "top-20" : "top-28"} ${shouldHideNav ? "-translate-y-full" : "translate-y-0"}`}>
+      <div className={`hidden md:block fixed w-full bg-green-100 z-40 transition-all duration-500 shadow-md ${topNavScrolled ? "top-20" : "top-28"} ${shouldHideNav ? "-translate-y-full" : "translate-y-0"}`}>
         <div className="container mx-auto px-2 py-3">
           <div className={`flex justify-center space-x-8 transition-opacity duration-1000  gap-8 ${showContent ? "opacity-100" : "opacity-0"}`}>
             <Link href="/produtos" className="text-gray-700 hover:text-green-600 font-semibold text-lg transition-colors duration-300">

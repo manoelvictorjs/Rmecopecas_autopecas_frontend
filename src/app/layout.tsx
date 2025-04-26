@@ -36,7 +36,7 @@ export default function RootLayout({
           </header>
           
           {/* Conteúdo principal com padding-top para evitar sobreposição */}
-          <main className="flex-grow pt-16"> {/* pt-16 deve ser igual à altura do navbar */}
+          <main className="flex-grow pt-16"> 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full h-full">
               {children}
             </div>
@@ -45,7 +45,7 @@ export default function RootLayout({
           {/* Footer e créditos */}
           <footer className="flex-shrink-0">
             <Footer />
-            <div className="w-full bg-green-100 border-t border-gray-200">
+            <div className="w-full">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 py-1">
                 <div className="text-center">
                   <Link 

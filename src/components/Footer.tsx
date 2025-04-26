@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import Link from "next/link";
-import { div } from 'framer-motion/client';
+import { div, strong } from 'framer-motion/client';
 
 const perks = [
   {
@@ -22,25 +22,26 @@ const perks = [
       'Política de Privacidade',
       'Carros Batidos',
       'Troca / Devoluções',
-      'Fale Conosco'
+      'Fale Conosco',
     ]
   },
   {
     name: 'Atendimento',
     Icon: Phone,
     telefoneIcon: MessageCircle ,
-    telefone: "Whatsapp",
+    telefone: "Whatsapp:",
     telefoneInf:'(71) 9114-1526 ' ,
     email: "E-mail:",
     emailInf: 'Rmecopecas@outlook.com',
     clock: 'Horário de Atendimento:',
-    clockIf: '08h00 às 17h00'
+    clockIf: '08h00 às 17h00',
   },
   {
     name: 'RmEcopeças',
     Icon: Settings,
-    description: "CNPJ AQUI",
-    localizacao: 'Rua Vereador Zezéu Ribeiro, 55, LJ 3, Boca da Mata'
+    description: "RmEcopeças - 46.575.768/0001-94",
+    endereco: "Endereço:",
+    localizacao: 'Rua Vereador Zezéu Ribeiro, 55, LJ 3, Boca da Mata',
   },
 ];
 
@@ -51,15 +52,15 @@ export default function Footer() {
   });
 
   return (
-    <footer className="border-t border-green-50 bg-green-100 w-full flex flex-col min-h-[400px]">
+    <footer className="border-t border-gray-200 bg-green-100 w-full flex flex-col min-h-[400px]">
       <MaxWidthWrapper className="py-10 px-4 sm:px-6 ml-[2%] sm:sl-[5%] flex-grow" >
         <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-3">
           {perks.map((perk, index) => (
             <div 
               key={perk.name}
               className={`
-                min-w-0 
-                ${index < perks.length - 1 ? 'pb-8 sm:pb-0 border-b sm:border-b-0 sm:border-r border-gray-200' : ''}
+                min-w-0 pl-6 border-l border-gray-200 
+                ${index < perks.length - 1 ? 'pb-8 sm:pb-0 border-b sm:border-b-0 sm:border-l border-gray-200' : ''}
                 ${index !== 0 ? 'sm:pl-6' : ''}
                 ${index !== perks.length - 1 ? 'sm:pr-6' : ''}
               `}
@@ -112,9 +113,10 @@ export default function Footer() {
                         </span>
                       </div>
                     )}
-                    {perk.localizacao && (
-                      <p className="mt-3 text-gray-700">{perk.localizacao}</p>
-                    )}
+                    {perk.endereco && (
+                      <div >
+                     {perk.endereco} <span className="mt-3 text-gray-700"> {perk.localizacao}</span>
+                      </div>              )}
                   </div>
                 )}
               </div>

@@ -27,34 +27,37 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR" className={`h-full ${montserrat.variable}`}>
-      <body className={cn("relative h-full font-sans antialiased bg-green-100 flex flex-col", inter.className)}> 
-        {/* Container principal flexível */}
-        <div className="flex flex-col min-h-screen w-full">
-          <Navbar/>
+      <body className={cn("relative h-full font-sans antialiased bg-green-100", inter.className)}>
+        {/* Estrutura principal sem flex no body */}
+        <div className="min-h-screen flex flex-col">
+          {/* Navbar com altura fixa */}
+          <header className="flex-shrink-0">
+            <Navbar />
+          </header>
           
-          {/* Conteúdo principal que cresce */}
-          <main className="flex-grow">
-            {children}
+          {/* Conteúdo principal com padding-top para evitar sobreposição */}
+          <main className="flex-grow pt-16"> {/* pt-16 deve ser igual à altura do navbar */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full h-full">
+              {children}
+            </div>
           </main>
           
-          {/* Rodapé e créditos - agora alinhados corretamente */}
-          <div className="mt-auto">
-            <Footer/>
-            
-            {/* Container do desenvolvedor - centralizado e alinhado */}
-            <div className="w-full bg-green-100 ">
+          {/* Footer e créditos */}
+          <footer className="flex-shrink-0">
+            <Footer />
+            <div className="w-full bg-green-100 border-t border-gray-200">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 py-1">
                 <div className="text-center">
                   <Link 
                     href="https://www.linkedin.com/in/manoel-victor-b6a45b333/" 
-                    className="text-sm text-gray-500 hover:text-green-600 inline-block ml-11"
+                    className="text-sm text-gray-500 hover:text-green-600 inline-block ml-12"
                   >
                     Dev Manoel Victor  
                   </Link>
                 </div>
               </div>
             </div>
-          </div>
+          </footer>
         </div>
       </body>
     </html>

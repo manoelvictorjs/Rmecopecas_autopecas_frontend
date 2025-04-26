@@ -46,7 +46,7 @@ const perks = [
 
 export default function Footer() {
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
 

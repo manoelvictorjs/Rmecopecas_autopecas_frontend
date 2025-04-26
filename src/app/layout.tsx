@@ -3,6 +3,14 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
+import { Montserrat } from 'next/font/google'
+import Footer from "@/components/Footer";
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-montserrat',
+})
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,13 +25,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-br" className="h-full">
-      <body
-        className={cn("relative h-full font-sans antialiased", inter.className)}
-      >
+    <html lang="pt-BR" className={`h-full ${montserrat.variable}`}>
+      <body className={cn("relative h-full font-sans antialiased", inter.className)}> 
+        <header className="m-0 p-0 border-0">
+        </header>
+       
         <main className="relative flex flex-col min-h-screen">
-          <Navbar />
-          <div className="flex-grow flex-1">{children}</div>
+        <Navbar/>
+        <div className="flex-grow flex-1">{children}</div>
+        <Footer/>         
+         
         </main>
       </body>
     </html>

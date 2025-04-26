@@ -58,10 +58,16 @@ const config: Config = {
   				'3': 'hsl(var(--chart-3))',
   				'4': 'hsl(var(--chart-4))',
   				'5': 'hsl(var(--chart-5))'
-  			}
+  			},
+
+			'greenp1' : '#e9fccf',
+			'greenp2' : '#d8fcb3',
   		}
   	}
   },
+
+
   plugins: [require("tailwindcss-animate")],
 }
+
 export default config

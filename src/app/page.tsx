@@ -1,18 +1,19 @@
+"use client";
+import Carousell from '@/components/Carousel';
+import MaxWidthWrapper from '@/components/MaxWidthWrapper';
+import { Button, buttonVariants } from '@/components/ui/button';
+import Link from 'next/link';
 
-import MaxWidthWrapper from '@/components/MaxWidthWrapper'
-import { Button, buttonVariants } from '@/components/ui/button'
-import { CheckCircle, Clock, Mail, Phone, Settings, Info } from 'lucide-react'
-
-import Link from 'next/link'
-  
 
 
 
 export default function Home() {
+  
   return (
     <>
-      <MaxWidthWrapper>
+      <Carousell/>
 
+      <MaxWidthWrapper>
         <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className='text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl'>
             RM{' '}
@@ -28,8 +29,6 @@ export default function Home() {
           </div>
         </div>
       </MaxWidthWrapper>
-
-     
     </>
-  )
+  );
 }

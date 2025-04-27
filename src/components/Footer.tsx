@@ -6,7 +6,6 @@ import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 import { motion } from 'framer-motion';
 import Link from "next/link";
-import { div, strong } from 'framer-motion/client';
 
 const perks = [
   {
@@ -41,7 +40,8 @@ const perks = [
     Icon: Settings,
     description: "RmEcopeças - 46.575.768/0001-94",
     endereco: "Endereço:",
-    localizacao: 'Rua Vereador Zezéu Ribeiro, 55, LJ 3, Boca da Mata',
+    localizacao: ["Rua Vereador Zezéu Ribeiro, 55,",
+                 " LJ 3, Boca da Mata  Salvador - BA",]
   },
 ];
 
@@ -52,9 +52,10 @@ export default function Footer() {
   });
 
   return (
+        
     <footer className="border-t border-gray-200 bg-green-100 w-full flex flex-col min-h-[400px]">
       <MaxWidthWrapper className="py-10 px-4 sm:px-6 ml-[2%] sm:sl-[5%] flex-grow" >
-        <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-3">
+                <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-3">
           {perks.map((perk, index) => (
             <div 
               key={perk.name}
@@ -112,10 +113,10 @@ export default function Footer() {
                         <strong> {perk.clock} </strong> <span className="text-gray-700">{perk.clockIf}</span>
                         </span>
                       </div>
-                    )}
+                    )}                            
                     {perk.endereco && (
                       <div >
-                     {perk.endereco} <span className="mt-3 text-gray-700"> {perk.localizacao}</span>
+                     {perk.endereco} <span className="mt-3 text-gray-700 whitespace-pre-line"> {perk.localizacao.join('\n')}</span>
                       </div>              )}
                   </div>
                 )}
@@ -132,6 +133,7 @@ export default function Footer() {
               animate={{ scale: inView ? 1.1 : 0.8 }}
               transition={{ duration: 0.5 }}
             >
+              <Link href="/">
               <Image 
                 src={logo}
                 width={200}
@@ -139,6 +141,7 @@ export default function Footer() {
                 alt="Logo"
                 className="mx-auto"
               />
+              </Link>
               
             </motion.div>
           </div >

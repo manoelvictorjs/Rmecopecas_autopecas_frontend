@@ -39,7 +39,7 @@ export default function Carousell() {
     // Configura autoplay
     const autoplay = setInterval(() => {
       api.scrollNext();
-    }, 10000);
+    }, 7000);
 
     // Cleanup
     return () => {

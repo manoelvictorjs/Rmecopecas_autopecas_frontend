@@ -77,8 +77,9 @@ export default function Carousell() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-4 hidden sm:inline-flex " />
-          <CarouselNext className="right-4 hidden sm:inline-flex" />
+          <CarouselPrevious className="left-4 hidden sm:inline-flex bg-transparent text-blue-500 hover:text-blue-700 hover:bg-transparent border-0" />
+          <CarouselNext className="right-4 hidden sm:inline-flex bg-transparent text-blue-500 hover:text-blue-700 hover:bg-transparent border-0" />
+
         </Carousel>
 
         <div className="flex justify-center gap-2 pb-4 bg-green-100">
@@ -87,7 +88,7 @@ export default function Carousell() {
               key={index}
               onClick={() => api?.scrollTo(index)}
               className={`w-3 h-3 rounded-full transition-all ${
-                current === index ? 'bg-green-700' : 'bg-gray-300'
+                current === index ? 'bg-green-50' : 'bg-green-100'
               }`}
               aria-label={`Slide ${index + 1}`}
             />
